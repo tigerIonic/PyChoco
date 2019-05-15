@@ -1,0 +1,17 @@
+language: java
+notifications:
+  email:
+    recipients:
+      - paul.bavazzano@gmail.com
+      - elkhantache.ismael@gmail.com
+      - ceuterickx.gaetan@gmail.com
+    on_success: always
+    on_failure: always
+addons:
+  sonarcloud:
+    organization: "" # the key of the org you chose at step #3
+    token:
+      secure: "" # encrypted value of your token
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
